@@ -1,0 +1,9 @@
+.searchBar {
+    padding: 1.5rem;
+    width: auto;
+    text-align: right;
+    background-image: url('https://roommatesdecor.com/cdn/shop/files/RMK12446RL_31937e70-8baf-439c-ab8d-28cb4cd1da78.jpg?v=1721843907');
+    background-size: 20%; /* Makes the background cover the entire element */
+    background-position: inherit; /* Centers the background image */
+    background-repeat: repeat; /* Prevents the image from repeating */
+}
