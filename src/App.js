@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import CharacterDatabasePage from './components/CharacterDatabasePage';
-import CardViewPage from './components/CardViewPage';
+import CharacterDatabasePage from './pages/CharacterDatabasePage.js';
+import CardViewPage from './pages/CardViewPage.js';
 import './App.css';
 import MyAppBar from './components/AppBar.js'
 

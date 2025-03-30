@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
-import SearchBar from './SearchBar';
-import CharacterTable from './CharacterTable';
+import SearchBar from '../components/SearchBar';
+import CharacterTable from '../components/CharacterTable';
 
 const CharacterDatabasePage = () => {
     const [searchTerm, setSearchTerm] = useState('');
