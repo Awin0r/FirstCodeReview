@@ -1,6 +1,7 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography } from '@mui/material';
 import { NavLink } from 'react-router-dom';
+import PathConstants from '../routes/PathConstants';
 
 const MyAppBar = (  ) => {
   return (
@@ -16,7 +17,7 @@ const MyAppBar = (  ) => {
         </Typography>
 
         <NavLink
-          to="/"
+          to={PathConstants.CHARACTERDATABASE}
           className={({ isActive }) => (isActive ? 'active-link' : 'nav-link')}
           aria-label="Ir a la base de datos de personajes" //Para la accesibilidad :o
         >
@@ -24,7 +25,7 @@ const MyAppBar = (  ) => {
         </NavLink>
 
         <NavLink
-          to="/cardviewpage"
+          to={PathConstants.CARDVIEW}
           className={({ isActive }) => (isActive ? 'active-link' : 'nav-link')}
           aria-label="Ver tarjetas de personajes"
         >
