@@ -1,10 +1,18 @@
 import React from 'react';
-import { TextField } from '@mui/material';
-import './SearchBar.css';
+import { TextField, Box } from '@mui/material';
 
 const SearchBar = ({ searchTerm, handleSearchChange }) => {
   return (
-    <section className="searchBar">
+    <Box sx={{
+      padding: '2rem',
+      width: 'auto',
+      textAlign: 'right',
+      backgroundImage: "url('https://roommatesdecor.com/cdn/shop/files/RMK12446RL_31937e70-8baf-439c-ab8d-28cb4cd1da78.jpg?v=1721843907')",
+      backgroundSize: '20%',
+      backgroundPosition: "inherit",
+      backgroundRepeat: "repeat",
+      backgroundAttachment: 'fixed',
+    }}>
       <TextField
         label="Search by Name"
         variant="outlined"
@@ -31,11 +39,16 @@ const SearchBar = ({ searchTerm, handleSearchChange }) => {
               paddingLeft: "0.2rem",
               paddingRight: "0.2rem"
             },
+          '&.MuiInputLabel-shrink': {
+            backgroundColor: '#FFFFFF',
+            paddingLeft: "0.2rem",  
+            paddingRight: "0.2rem", 
+          },
           }
         }}
         aria-label="Search characters by name"
       />
-    </section>
+    </Box>
   );
 };
 
