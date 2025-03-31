@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton, Collapse, Box, Typography, Grid } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton, Collapse, Box, Typography, Grid2 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const CharacterTable = ({ searchTerm }) => {
@@ -59,38 +59,38 @@ const CharacterTable = ({ searchTerm }) => {
       <Table>
         <TableHead>
           <TableRow sx={{ background: "linear-gradient(to right, #FEF96C, #98D9D9)" }}>
-            <TableCell sx={{ fontWeight: 'bold', textTransform: "uppercase", width: '30%', borderBottom: "2px solid #9AA2F8"}}>Name</TableCell>
-            <TableCell sx={{ fontWeight: 'bold', textTransform: "uppercase", width: '10%', borderBottom: "2px solid #9AA2F8"}}>Gender</TableCell>
-            <TableCell sx={{ fontWeight: 'bold', textTransform: "uppercase", width: '10%', borderBottom: "2px solid #9AA2F8"}}>Status</TableCell>
-            <TableCell sx={{ fontWeight: 'bold', textTransform: "uppercase", width: '10%', borderBottom: "2px solid #9AA2F8"}}>Species</TableCell>
-            <TableCell sx={{ fontWeight: 'bold', textTransform: "uppercase", width: '30%', borderBottom: "2px solid #9AA2F8"}}>Location</TableCell>
-            <TableCell sx={{ fontWeight: 'bold', textTransform: "uppercase", width: '10%', borderBottom: "2px solid #9AA2F8"}}>Episodes Count</TableCell>
+            <TableCell sx={{ ...headerCellStyles, width: '30%'}}>Name</TableCell>
+            <TableCell sx={{ ...headerCellStyles, width: '10%'}}>Gender</TableCell>
+            <TableCell sx={{ ...headerCellStyles, width: '10%'}}>Status</TableCell>
+            <TableCell sx={{ ...headerCellStyles, width: '10%'}}>Species</TableCell>
+            <TableCell sx={{ ...headerCellStyles, width: '30%'}}>Location</TableCell>
+            <TableCell sx={{ ...headerCellStyles, width: '10%'}}>Episodes Count</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {filteredCharacters.map((character, index) => (
             <React.Fragment key={character.id}>
               <TableRow>
-                <TableCell sx={{borderBottom: "1px solid #9AA2F8"}}>
+                <TableCell sx={{ ...bodyCellStyles }}>
                   <IconButton onClick={() => handleExpandClick(index)}>
                     <ExpandMoreIcon />
                   </IconButton>
                   {character.name}
                 </TableCell>
-                <TableCell sx={{borderBottom: "1px solid #9AA2F8"}}>{character.gender}</TableCell>
-                <TableCell sx={{borderBottom: "1px solid #9AA2F8"}}>{character.status}</TableCell>
-                <TableCell sx={{borderBottom: "1px solid #9AA2F8"}}>{character.species}</TableCell>
-                <TableCell sx={{borderBottom: "1px solid #9AA2F8"}}>{character.location.name}</TableCell>
-                <TableCell sx={{borderBottom: "1px solid #9AA2F8"}}>{character.episode.length}</TableCell>
+                <TableCell sx={{ ...bodyCellStyles }}>{character.gender}</TableCell>
+                <TableCell sx={{ ...bodyCellStyles }}>{character.status}</TableCell>
+                <TableCell sx={{ ...bodyCellStyles }}>{character.species}</TableCell>
+                <TableCell sx={{ ...bodyCellStyles }}>{character.location.name}</TableCell>
+                <TableCell sx={{ ...bodyCellStyles }}>{character.episode.length}</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell colSpan={12} sx={{ padding: '0'}}>
                   <Collapse in={expanded === index} timeout="auto" unmountOnExit>
                     <Box sx={{padding: '1rem', minHeight: '150px' }}>
 
-                      <Grid container spacing={2} >
+                      <Grid2 container spacing={2} >
 
-                        <Grid item xs={12} sm={12} md={12} sx={{ display: 'flex', justifyContent: 'center', gap: '1rem' }}>
+                        <Grid2 item size={{ xs:12, sm:12, md:12}} sx={{ display: 'flex', justifyContent: 'center', gap: '1rem' }}>
                           <img
                             src={character.image}
                             alt={character.name}
@@ -101,42 +101,39 @@ const CharacterTable = ({ searchTerm }) => {
                               objectFit: 'cover',
                             }}
                           />
-                          <Grid sx={{ marginTop: '1.5rem' }}>
+                          <Grid2 sx={{ marginTop: '1.5rem' }}>
                             <Typography>{character.name}</Typography>
                             <Typography>{character.gender}</Typography>
                             <Typography>{character.status}</Typography>
                             <Typography>{character.species}</Typography>
                             <Typography>{character.origin.name}</Typography>
                             <Typography>{character.location.name}</Typography>
-                          </Grid>
-                        </Grid>
+                          </Grid2>
+                        </Grid2>
 
-                        <Grid item xs={12} sm={12} md={12}>
+                        <Grid2 item size={{ xs:12, sm:12, md:12}}>
                           {episodes[character.id] && (
-                            <Box >
-
                               <Table sx={{ width: '100%' }}>
                                 <TableHead>
                                   <TableRow sx={{ background: "linear-gradient(to right, #B4D331, #59A249)" }}>
-                                    <TableCell sx={{ fontWeight: 'bold', width: '80%', borderBottom: "2px solid #88C345" }}>Name</TableCell>
-                                    <TableCell sx={{ fontWeight: 'bold', width: '10%', borderBottom: "2px solid #88C345" }}>Season</TableCell>
-                                    <TableCell sx={{ fontWeight: 'bold', width: '10%', borderBottom: "2px solid #88C345" }}>Episode</TableCell>
+                                    <TableCell sx={{ ...secHeaderCellStyles, width: '80%' }}>Name</TableCell>
+                                    <TableCell sx={{ ...secHeaderCellStyles, width: '10%' }}>Season</TableCell>
+                                    <TableCell sx={{ ...secHeaderCellStyles, width: '10%' }}>Episode</TableCell>
                                   </TableRow>
                                 </TableHead>
                                 <TableBody>
                                   {episodes[character.id].map((episode, episodeIndex) => (
                                     <TableRow key={episodeIndex}>
-                                      <TableCell sx={{ borderBottom: "1px solid #88C345"}}>{episode.name}</TableCell>
-                                      <TableCell sx={{ borderBottom: "1px solid #88C345"}}>{episode.season}</TableCell>
-                                      <TableCell sx={{ borderBottom: "1px solid #88C345"}}>{episode.episodeNumber}</TableCell>
+                                      <TableCell sx={{ ...secBodyCellStyles }}>{episode.name}</TableCell>
+                                      <TableCell sx={{ ...secBodyCellStyles }}>{episode.season}</TableCell>
+                                      <TableCell sx={{ ...secBodyCellStyles }}>{episode.episodeNumber}</TableCell>
                                     </TableRow>
                                   ))}
                                 </TableBody>
                               </Table>
-                            </Box>
                           )}
-                        </Grid>
-                      </Grid>
+                        </Grid2>
+                      </Grid2>
                     </Box>
                   </Collapse>
                 </TableCell>
@@ -148,6 +145,28 @@ const CharacterTable = ({ searchTerm }) => {
     </TableContainer>
   );
 };
+
+// Styling for the grid to avoid super long css inline
+
+const headerCellStyles = {
+  fontWeight: 'bold', 
+  textTransform: "uppercase", 
+  borderBottom: "2px solid #9AA2F8"
+}
+
+const bodyCellStyles = {
+  borderBottom: "1px solid #9AA2F8"
+}
+
+const secHeaderCellStyles = {
+  fontWeight: 'bold', 
+  textTransform: "uppercase", 
+  borderBottom: "2px solid #88C345"
+}
+
+const secBodyCellStyles = {
+  borderBottom: "1px solid #88C345"
+}
 
 export default CharacterTable;
 
