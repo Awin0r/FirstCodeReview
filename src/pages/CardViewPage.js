@@ -1,28 +1,35 @@
 import React, { useState, useEffect } from 'react';
-import { Grid, Card, CardContent, CardMedia, Typography } from '@mui/material';
+import { Grid2, Card, CardContent, CardMedia, Typography, Box, CircularProgress } from '@mui/material';
 
 const CardViewPage = () => {
   const [characters, setCharacters] = useState([]);
-  
-  // Obtener la data de la Api de Rick & Morti
+  const [ isLoading, setIsLoading ] = useState(false);
+
+  // Obtaining information from the Rick and Morty API
   useEffect(() => {
+    setIsLoading(true)
     fetch('https://rickandmortyapi.com/api/character')
       .then((response) => response.json())
-      .then((data) => setCharacters(data.results))
+      .then((data) => {
+        setCharacters(data.results); 
+        setIsLoading(false) 
+      })
       .catch((error) => console.error('Error fetching characters:', error));
   }, []);
 
   return (
-    <div style={{ 
+    <Box style={{ 
       padding: '2rem', 
+      height: '100%',
       backgroundImage: "url('https://roommatesdecor.com/cdn/shop/files/RMK12446RL_31937e70-8baf-439c-ab8d-28cb4cd1da78.jpg?v=1721843907')",
       backgroundSize: "20%",
       backgroundPosition: "inherit",
       backgroundRepeat: "repeat",
+      backgroundAttachment: 'fixed',
       }}>
-      <Grid container spacing={4}>
-        {characters.map((character) => (
-          <Grid item xs={6} sm={4} md={3} key={character.id}>
+      <Grid2 container spacing={4} sx={{justifyContent: 'center'}}>
+        {isLoading ? <CircularProgress /> : characters.map((character) => (
+          <Grid2 item size={{ xs:6, sm:4, md:3}} key={character.id}>
             <Card >
 
               <CardMedia
@@ -54,10 +61,10 @@ const CardViewPage = () => {
                 </Typography>
               </CardContent>
             </Card>
-          </Grid>
+          </Grid2>
         ))}
-      </Grid>
-    </div>
+      </Grid2>
+    </Box>
   );
 };
 
