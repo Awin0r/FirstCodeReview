@@ -1,7 +1,19 @@
 import React from 'react';
 import {Box, Typography } from '@mui/material';
+import { useEffect } from 'react';
 
 const Welcome = () => {
+
+  useEffect(() => {
+    // Add a class to the body for the home page
+    document.body.classList.add('home-page');
+
+    // Cleanup: Remove the class when leaving the page
+    return () => {
+      document.body.classList.remove('home-page');
+    };
+  }, []);
+
   return (
     <Box
       sx={{
