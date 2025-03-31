@@ -2,8 +2,6 @@ html {
   height: 100%;
   width: 100%;
   margin: 0;
-  overflow-x: hidden;
-  overflow: 'scroll';
 }
 
 body {
@@ -12,7 +10,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
-  background-color: black;
+  overflow-y: scroll;
 }
 
 code {
@@ -70,4 +68,9 @@ img {
     1px -1px 0px #f7f07b,  
     -1px 1px 0px #f7f07b,  
     1px 1px 0px #f7f07b;
+}
+
+.home-page {
+  overflow-y: hidden;
+  background-color: black;
 }
