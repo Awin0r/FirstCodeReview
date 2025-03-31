@@ -3,11 +3,12 @@ import { AppBar, Toolbar, Typography } from '@mui/material';
 import { NavLink, Link } from 'react-router-dom';
 import PathConstants from '../routes/PathConstants';
 
-const MyAppBar = (  ) => {
+const MyAppBar = () => {
   return (
     <AppBar position="sticky" sx={{ background: "linear-gradient(to bottom, #161621, #39427C)" }}>
       <Toolbar>
-        <Link to={PathConstants.HOME} >
+        <Link 
+          to={PathConstants.HOME} >
           <img 
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Rick_and_Morty.svg/800px-Rick_and_Morty.svg.png" 
             alt='Logo Rick and Morty'

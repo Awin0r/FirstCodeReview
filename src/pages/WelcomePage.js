@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 
 const Welcome = () => {
 
+  // Conditional style to have a black background in the home to fit the styling
   useEffect(() => {
     // Add a class to the body for the home page
     document.body.classList.add('home-page');
@@ -43,10 +44,10 @@ const Welcome = () => {
             sx={{
             width: '80rem',
             height: '40rem',
-            backgroundImage: "url('https://i.pinimg.com/originals/fa/16/51/fa16514fbec646d08f51e1bd5fdc6ab5.gif')", // Placeholder image URL
+            backgroundImage: "url('https://i.pinimg.com/originals/fa/16/51/fa16514fbec646d08f51e1bd5fdc6ab5.gif')",
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            borderRadius: '4px', // Optional: rounded corners for the image
+            borderRadius: '4px',
             }}
         />
         </Box>

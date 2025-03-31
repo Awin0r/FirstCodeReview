@@ -5,8 +5,8 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 const CharacterTable = ({ searchTerm }) => {
   const [characters, setCharacters] = useState([]);
   const [expanded, setExpanded] = useState(null);
-  const [episodes, setEpisodes] = useState({});  // Almacenar detalles de los episodios fetched por ID
-
+  const [episodes, setEpisodes] = useState({});
+  
   useEffect(() => {
     fetch('https://rickandmortyapi.com/api/character')
       .then((response) => response.json())
@@ -14,6 +14,7 @@ const CharacterTable = ({ searchTerm }) => {
       .catch((error) => console.error('Error fetching characters:', error));
   }, []);
 
+  // In order to open each row associated info
   const handleExpandClick = (index) => {
     setExpanded(expanded === index ? null : index);
   };
@@ -32,11 +33,11 @@ const CharacterTable = ({ searchTerm }) => {
       )
     );
 
-    // Devuelve un objeto que asigna las URL de los episodios a sus detalles
+    // Returns an object that assigns URL of the episodes to their details
     return episodeDetails;
   };
 
-  // Obtener detalles de los episodios de cada personaje
+  // Obtain episode details for each specific character
   useEffect(() => {
     characters.forEach((character) => {
       if (character.episode.length) {
@@ -50,6 +51,8 @@ const CharacterTable = ({ searchTerm }) => {
     });
   }, [characters]);
 
+  // Filter the characters that match the search condition
+  // Use of the tolowercase to ensure the search is  case-insensitive (doesn´t matter if you write uppercase or lowercase)
   const filteredCharacters = characters.filter((character) =>
     character.name.toLowerCase().includes(searchTerm.toLowerCase())
   );

@@ -5,9 +5,10 @@ import CharacterTable from '../components/CharacterTable';
 
 const CharacterDatabasePage = () => {
 
+    // SearchTerm state is passed as a prop to control the value of the search input
     const [searchTerm, setSearchTerm] = useState('');
 
-    // Updating search state
+    //The handleSearchChange function updates the searchTerm state whenever the user types into the input field.
     const handleSearchChange = (event) => {
       setSearchTerm(event.target.value);
     };
