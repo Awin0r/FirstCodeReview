@@ -11,7 +11,7 @@ const MyRoutes = () => {
     <Router>
       <Routes>
         <Route path={PathConstants.HOME} element={<App/>}>
-            <Route index element={<WelcomePage />} />
+            <Route index element={<WelcomePage />} /> 
             <Route path={PathConstants.CHARACTERDATABASE} element={<CharacterDatabasePage />} />
             <Route path={PathConstants.CARDVIEW} element={<CardViewPage />} />
         </Route>

@@ -1,6 +1,8 @@
 import React from 'react';
 import { TextField, Box } from '@mui/material';
 
+// The SearchBar component is used in the CharacterDatabasePage component, and the searchTerm state is passed as a prop to control the value of the search input.
+
 const SearchBar = ({ searchTerm, handleSearchChange }) => {
   return (
     <Box sx={{
